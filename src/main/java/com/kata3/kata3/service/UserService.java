@@ -27,14 +27,14 @@ public class UserService {
         User user = new User();
         user.setUsername(userDto.getUsername());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
-        userRepository.save(user);
-        return jwtUtil.generateToken(userDto.getUsername());
+        User savedUser = userRepository.save(user);
+        return jwtUtil.generateToken(savedUser.getId(), userDto.getUsername());
     }
 
     public String login(UserDto userDto) {
         User user = userRepository.findByUsername(userDto.getUsername()).orElse(null);
         if (user != null && passwordEncoder.matches(userDto.getPassword(), user.getPassword())) {
-            return jwtUtil.generateToken(userDto.getUsername());
+            return jwtUtil.generateToken(user.getId(), userDto.getUsername());
         }
         return null;
     }

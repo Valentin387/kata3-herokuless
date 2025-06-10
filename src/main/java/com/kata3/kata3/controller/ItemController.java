@@ -65,4 +65,10 @@ public class ItemController {
         boolean deleted = itemService.deleteItem(id, userId);
         return deleted ? ResponseEntity.ok(Map.of("success", true)) : ResponseEntity.notFound().build();
     }
+
+    @DeleteMapping(value = "/reset", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Map<String, Boolean>> resetItems() {
+        itemService.deleteAll();
+        return ResponseEntity.ok(Map.of("success", true));
+    }
 }

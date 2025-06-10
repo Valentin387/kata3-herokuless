@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Kata3Application {
 
 	public static void main(String[] args) {
+
+		//System.out.println("MongoDB URI: " + System.getenv("SPRING_DATA_MONGODB_URI"));
 		SpringApplication.run(Kata3Application.class, args);
 	}
 

@@ -62,6 +62,10 @@ public class ItemService {
         return false;
     }
 
+    public void deleteAll() {
+        itemRepository.deleteAll();
+    }
+
     private ItemDto convertToDto(Item item) {
         ItemDto dto = new ItemDto();
         dto.setId(item.getId());

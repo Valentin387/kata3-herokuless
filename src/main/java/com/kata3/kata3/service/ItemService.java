@@ -35,10 +35,7 @@ public class ItemService {
         item.setDescription(itemDto.getDescription());
         item.setFinished(itemDto.isFinished());
         item.setUserId(userId);
-        //print the item
-        System.out.println(item);
         Item savedItem = itemRepository.save(item);
-        System.out.println(savedItem);
         return convertToDto(savedItem);
     }
 

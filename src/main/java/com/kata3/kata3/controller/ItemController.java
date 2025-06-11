@@ -47,8 +47,6 @@ public class ItemController {
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ItemDto> createItem(@RequestBody ItemDto itemDto, HttpServletRequest request) {
-        System.out.println(itemDto);
-        System.out.println(request);
         String userId = getUserIdFromToken(request);
         ItemDto createdItem = itemService.createItem(itemDto, userId);
         return ResponseEntity.ok(createdItem);

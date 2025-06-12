@@ -10,7 +10,7 @@ COPY gradle gradle
 COPY build.gradle.kts .
 COPY settings.gradle.kts .
 
-# Copy source code
+# Copy source code 
 COPY src src
 
 # Ensure gradlew is executable

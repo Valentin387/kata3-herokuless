@@ -14,7 +14,7 @@ COPY settings.gradle.kts .
 COPY src src
 
 # Ensure gradlew is executable
-RUN chmod +x gradlew
+RUN chmod +x gradlew 
 
 # Build the application (skip tests to speed up the build)
 RUN ./gradlew clean build -x test

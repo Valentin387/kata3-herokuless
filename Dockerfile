@@ -10,7 +10,7 @@ COPY gradle gradle
 COPY build.gradle.kts .
 COPY settings.gradle.kts .
 
-# Copy source code 
+# Copy source code
 COPY src src
 
 # Ensure gradlew is executable
@@ -23,4 +23,4 @@ RUN ./gradlew clean build -x test
 EXPOSE 8080
 
 # Run the JAR file using shell form to resolve $PORT
-CMD java -Dserver.port=$PORT -jar build/libs/kata3-0.0.1-SNAPSHOT.jar
+CMD ["java", "-jar", "build/libs/kata3-0.0.1-SNAPSHOT.jar"]

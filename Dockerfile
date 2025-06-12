@@ -20,7 +20,7 @@ RUN chmod +x gradlew
 RUN ./gradlew clean build -x test
 
 # Expose the port (default for Spring Boot is 8080, but Railway assigns dynamically)
-EXPOSE 8080
+# EXPOSE 8080
 
 # Run the JAR file using shell form to resolve $PORT
 CMD ["java", "-jar", "build/libs/kata3-0.0.1-SNAPSHOT.jar"]

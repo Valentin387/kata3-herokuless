@@ -14,7 +14,7 @@ COPY settings.gradle.kts .
 COPY src src
 
 # Ensure gradlew is executable
-RUN chmod +x gradlew 
+RUN chmod +x gradlew
 
 # Build the application (skip tests to speed up the build)
 RUN ./gradlew clean build -x test
@@ -22,5 +22,5 @@ RUN ./gradlew clean build -x test
 # Expose the port (default for Spring Boot is 8080, but Render assigns dynamically)
 EXPOSE 8080
 
-# Run the JAR file
-CMD ["java", "-Dserver.port=$PORT", "-jar", "build/libs/kata3-0.0.1-SNAPSHOT.jar"]
+# Run the JAR file using shell form to resolve $PORT
+CMD java -Dserver.port=$PORT -jar build/libs/kata3-0.0.1-SNAPSHOT.jar

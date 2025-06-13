@@ -19,6 +19,10 @@ public class JwtUtil {
                    @Value("${spring.security.jwt.expiration}") long expiration) {
         this.secret = secret;
         this.expiration = expiration;
+        System.out.println("JwtUtil initialized with secret length: " + (secret != null ? secret.length() : "null") + ", expiration: " + expiration);
+        if (secret == null || secret.isEmpty()) {
+            throw new IllegalStateException("JWT_SECRET is null or empty");
+        }
     }
 
     public String generateToken(String userId, String username) {

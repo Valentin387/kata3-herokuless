@@ -10,8 +10,8 @@ COPY gradle gradle
 COPY build.gradle.kts .
 COPY settings.gradle.kts .
 
-# Copy source code
-COPY src src
+# Copy local code to the container image.
+COPY . ./
 
 # Ensure gradlew is executable
 RUN chmod +x gradlew
